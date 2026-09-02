@@ -1,21 +1,24 @@
-import cv2 as cv
+import cloudinary
+import cloudinary.uploader
+from cloudinary.utils import cloudinary_url
 
-# Read the image
-img = cv.imread('Lionel_Messi,_Player_of_FC_Barcelona_team.jpg')
+# Configuration       
+cloudinary.config( 
+    cloud_name = "c2fq4zzj", 
+    api_key = "353355462472236", 
+    api_secret = "<XEE7ohNbbMYMiMuZjf-oEEv5Hmg>", # Click 'View API Keys' above to copy your API secret
+    secure=True
+)
 
-# Convert to grayscale
-gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+# Upload an image
+upload_result = cloudinary.uploader.upload("https://res.cloudinary.com/c2fq4zzj/image/upload/v1788348294/Lionel_Messi__Player_of_FC_Barcelona_team.jpg",
+                                           public_id="messi")
+print(upload_result["secure_url"])
 
-# Apply Gaussian blur
-blurred = cv.GaussianBlur(gray, (5, 5), 0)
+# Optimize delivery by resizing and applying auto-format and auto-quality
+optimize_url, _ = cloudinary_url("messi", fetch_format="auto", quality="auto")
+print(optimize_url)
 
-# Detect edges using Canny
-edges = cv.Canny(blurred, 50, 150)
-
-# Display all results
-cv.imshow('Original', img)
-cv.imshow('Grayscale', gray)
-cv.imshow('Edges', edges)
-
-cv.waitKey(0)
-cv.destroyAllWindows()
+# Transform the image: auto-crop to square aspect_ratio
+auto_crop_url, _ = cloudinary_url("messi", width=500, height=500, crop="auto", gravity="auto")
+print(auto_crop_url)
