@@ -13,12 +13,12 @@ cloudinary.config(
 # Upload an image
 upload_result = cloudinary.uploader.upload("https://res.cloudinary.com/c2fq4zzj/image/upload/v1788348294/Lionel_Messi__Player_of_FC_Barcelona_team.jpg",
                                            public_id="messi")
-print(upload_result["secure_url"])
+print("imagen original " + upload_result["secure_url"])
 
 # Optimize delivery by resizing and applying auto-format and auto-quality
 optimize_url, _ = cloudinary_url("messi", fetch_format="auto", quality="auto")
-print(optimize_url)
+print("Optimizado " + optimize_url)
 
 # Transform the image: auto-crop to square aspect_ratio
 auto_crop_url, _ = cloudinary_url("messi", width=500, height=500, crop="auto", gravity="auto")
-print(auto_crop_url)
+print("Recortado " + auto_crop_url)
