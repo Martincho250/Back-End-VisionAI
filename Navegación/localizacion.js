@@ -14,8 +14,8 @@ const getmarcador = async (req, res) => {
     res.send(result.rows);
   };
 
-  const canciones = {
+  const marcadores = {
     getmarcador
   };
   
-  export default canciones;
+  export default marcadores;
