@@ -2,7 +2,7 @@ import express from "express";
 const app = express();
 const port = 3000;
 
-import marcadores from "./Navegacion/localizacion.js";
+import marcadores from "./localizacion.js";
 
 
 app.use(express.json());
@@ -12,7 +12,7 @@ app.get("/", (_, res) => {
 });
 
 
-app.get("/marcador", marcadores.getMarcador);
+app.get("/marcador/:id", marcadores.getmarcador);
 
 const server = app.listen(port, () => {
   console.log(`SpoTICfy API listening at http://localhost:${port}`);

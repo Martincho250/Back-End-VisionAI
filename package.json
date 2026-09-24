@@ -1,5 +1,11 @@
 {
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "fs": "^0.0.1-security",
+    "pg": "^8.23.0"
+  },
+  "scripts": {
+    "start": "node ./comunicacion/comu.js",
+    "dev": "npx nodemon ./comunicacion/comu.js"
   }
 }
