@@ -8,7 +8,7 @@ import { query } from "./db.js";
  */
   const getmarcador = async (req, res) => {
     const result = await query(
-        "SELECT m.id AS marcador_id, m.ancho_cm, m.alto_cm, m.pared, n.id AS nodo_id, n.nombre AS nombre_lugar, n.posicion_x, n.posicion_y FROM marcadores m JOIN nodos n ON m.nodo_id = n.id WHERE m.id = $1",
+        "SELECT m.id AS marcador_id, m.ancho_cm, m.alto_cm, m.pared, n.id AS nodo_id, n.numero AS numero_lugar, n.nombre AS nombre_lugar, n.posicion_x, n.posicion_y FROM marcadores m JOIN nodos n ON m.nodo_id = n.id WHERE m.id = $1",
         [req.params.id]
     );
     res.json(result.rows[0]);
