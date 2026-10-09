@@ -1,8 +1,7 @@
 import express from "express";
 const app = express();
 const port = 3000;
-
-import marcadores from "./controllers/controlMarcador.js";
+import marcadoresRouter from "./routes/routesMarcadores.js";
 
 
 app.use(express.json());
@@ -12,7 +11,7 @@ app.get("/", (_, res) => {
 });
 
 
-app.use("/marcador", marcadores);
+app.use("/marcador", marcadoresRouter);
 
 const server = app.listen(port, () => {
   console.log(`SpoTICfy API listening at http://localhost:${port}`);
