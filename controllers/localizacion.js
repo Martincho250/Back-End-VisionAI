@@ -1,5 +1,5 @@
 // Node.js (Express)
-import { query } from "./db.js";
+import { query } from "../db.js";
 import fs from "fs";
 
 /**

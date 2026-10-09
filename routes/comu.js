@@ -2,7 +2,7 @@ import express from "express";
 const app = express();
 const port = 3000;
 
-import marcadores from "./localizacion.js";
+import marcadores from "../controllers/localizacion.js";
 
 
 app.use(express.json());
